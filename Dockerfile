@@ -1,0 +1,17 @@
+# 基于官方Python镜像
+FROM python:3.13.9
+
+# 设置工作目录
+WORKDIR /app
+
+# 复制依赖文件
+COPY requirements.txt .
+
+# 安装依赖
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 复制项目文件
+COPY . .
+
+# 设置容器启动命令
+CMD ["python", "your_main_script.py"]
